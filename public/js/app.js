@@ -1916,9 +1916,46 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'App',
-  components: {}
+  components: {},
+  data: function data() {
+    return {
+      posts: ''
+    };
+  },
+  methods: {
+    getAllPosts: function getAllPosts() {
+      var _this = this;
+
+      axios.get('/api/posts').then(function (response) {
+        console.log(response);
+        _this.posts = response.data;
+      })["catch"](function (e) {
+        console.error(e);
+      });
+    }
+  },
+  mounted: function mounted() {
+    console.log('mounted');
+    this.getAllPosts();
+  }
 });
 
 /***/ }),
@@ -37509,16 +37546,34 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", [
+    _c("section", { staticClass: "posts" }, [
+      _c("div", { staticClass: "container" }, [
+        _c(
+          "div",
+          { staticClass: "row row-cols-3" },
+          _vm._l(_vm.posts, function (post) {
+            return _c("div", { key: post.id, staticClass: "col" }, [
+              _c("div", { staticClass: "product card" }, [
+                _c("img", {
+                  attrs: { src: post.cover_image, alt: post.title },
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "card-body" }, [
+                  _c("h3", [_vm._v(_vm._s(post.title))]),
+                  _vm._v(" "),
+                  _c("p", [_vm._v(_vm._s(post.content))]),
+                ]),
+              ]),
+            ])
+          }),
+          0
+        ),
+      ]),
+    ]),
+  ])
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [_c("h1", [_vm._v("Work in Progress")])])
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -49819,14 +49874,15 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*!************************************!*\
   !*** ./resources/js/views/App.vue ***!
   \************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _App_vue_vue_type_template_id_91ac6b5c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./App.vue?vue&type=template&id=91ac6b5c& */ "./resources/js/views/App.vue?vue&type=template&id=91ac6b5c&");
 /* harmony import */ var _App_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./App.vue?vue&type=script&lang=js& */ "./resources/js/views/App.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _App_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _App_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -49856,7 +49912,7 @@ component.options.__file = "resources/js/views/App.vue"
 /*!*************************************************************!*\
   !*** ./resources/js/views/App.vue?vue&type=script&lang=js& ***!
   \*************************************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -49913,9 +49969,9 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\MAMP\htdocs\laravel\laravel-boolpress\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! C:\MAMP\htdocs\laravel\laravel-boolpress\resources\sass\app.scss */"./resources/sass/app.scss");
-module.exports = __webpack_require__(/*! C:\MAMP\htdocs\laravel\laravel-boolpress\resources\sass\admin.scss */"./resources/sass/admin.scss");
+__webpack_require__(/*! C:\MAMP\htdocs\laravel\laravel-boolpress-api\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! C:\MAMP\htdocs\laravel\laravel-boolpress-api\resources\sass\app.scss */"./resources/sass/app.scss");
+module.exports = __webpack_require__(/*! C:\MAMP\htdocs\laravel\laravel-boolpress-api\resources\sass\admin.scss */"./resources/sass/admin.scss");
 
 
 /***/ })

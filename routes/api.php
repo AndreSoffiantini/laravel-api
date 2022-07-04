@@ -23,4 +23,6 @@ Route::get('posts', function(){
 
     $posts = Post::all();
 
+    return $posts;
+
 });
